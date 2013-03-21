@@ -8,3 +8,8 @@ META.yml
 README
 LICENSE
 CHANGES
+t/00perlcritic.t
+t/00perltidy.t
+t/00perlcriticprogressive.t
+t/00pod.t
+t/00podcover.t
