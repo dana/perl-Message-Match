@@ -32,14 +32,23 @@
    "provides" : {
       "Message::Match" : {
          "file" : "lib/Message/Match.pm",
-         "version" : "0.2"
+         "version" : "0.3"
       }
    },
    "release_status" : "unstable",
    "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/dana/perl-Message-Match/issues"
+      },
       "license" : [
          "http://dev.perl.org/licenses/"
-      ]
+      ],
+      "homepage" : "https://metacpan.org/module/Message::Match",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/dana/perl-Message-Match.git",
+         "web" : "https://github.com/dana/perl-Message-Match.git"
+      }
    },
-   "version" : "0.2"
+   "version" : "0.3"
 }

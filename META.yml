@@ -16,8 +16,12 @@ name: Message-Match
 provides:
   Message::Match:
     file: lib/Message/Match.pm
-    version: 0.2
+    version: 0.3
 requires:
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.2
+resources:
+  bugtracker: https://github.com/dana/perl-Message-Match/issues
+  homepage: https://metacpan.org/module/Message::Match
+  repository: git://github.com/dana/perl-Message-Match.git
+version: 0.3
