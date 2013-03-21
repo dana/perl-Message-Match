@@ -20,7 +20,6 @@ provides:
 requires:
 resources:
   license: http://dev.perl.org/licenses/
-resources:
   bugtracker: https://github.com/dana/perl-Message-Match/issues
   homepage: https://metacpan.org/module/Message::Match
   repository: git://github.com/dana/perl-Message-Match.git
