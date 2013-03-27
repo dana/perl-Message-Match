@@ -1,15 +1,11 @@
+Changes
 lib/Message/Match.pm
 Makefile.PL
-t/basic.t
-MANIFEST
-Build.PL
-META.json
-META.yml
+MANIFEST			This list of files
 README
-LICENSE
-CHANGES
-t/00perlcritic.t
-t/00perltidy.t
-t/00perlcriticprogressive.t
-t/00pod.t
-t/00podcover.t
+t/00-load.t
+t/basic.t
+t/boilerplate.t
+t/manifest.t
+t/pod-coverage.t
+t/pod.t

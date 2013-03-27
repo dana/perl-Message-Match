@@ -1,24 +1,36 @@
-use ExtUtils::MakeMaker;
+use 5.006;
+use strict;
+use warnings FATAL => 'all';
+use inc::Module::Install;
 
-#copied shamelessly from Pod-PseudoPod-0.18/Makefile.PL
-# The list of tests has to be explicitly generated on Win98.
-my @tests;
-for my $dir (qw(t)) {
-    opendir my $dh, $dir or die $!;
-    push @tests, map { "$dir/$_" } grep { /\.t$/ } readdir $dh;
-    closedir $dh;
-}
+name     'Message-Match';
+all_from 'lib/Message/Match.pm';
+author   q{Dana M. Diederich <diederich@gmail.com>};
+license  'artistic2';
 
-WriteMakefile(
-    NAME         => 'Message::Match',
-    VERSION_FROM => 'lib/Message/Match.pm', # finds $VERSION
-    PREREQ_PM    => {
-    },
-    test =>
-        {TESTS => "@tests"},
-    AUTHOR       => 'Dana M. Diederich <diederich@gmail.com>',
-    ABSTRACT     => 'Fast, simple message matching', 
-    PL_FILES => {}, # ignore the Build.PL file
-    EXE_FILES => [],
-    LICENSE => 'perl',
+perl_version 5.006;
+
+tests_recursive('t');
+
+resources (
+   homepage   => 'https://metacpan.org/module/Message::Match',
+   #IRC        => 'irc://irc.perl.org/#Message-Match',
+   license    => 'http://www.perlfoundation.org/artistic_license_2_0',
+   repository => 'git://github.com/dana/perl-Message-Match.git',
+   bugtracker => 'https://github.com/dana/perl-Message-Match/issues',
 );
+
+configure_requires (
+   'Module::Install' => 0,
+);
+
+build_requires (
+   'Test::More' => 0,
+);
+
+requires (
+);
+
+install_as_cpan;
+auto_install;
+WriteAll;
