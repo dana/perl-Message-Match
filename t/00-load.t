@@ -10,4 +10,3 @@ BEGIN {
     use_ok( 'Message::Match' ) || print "Bail out!\n";
 }
 
-diag( "Testing Message::Match $Message::Match::VERSION, Perl $], $^X" );
