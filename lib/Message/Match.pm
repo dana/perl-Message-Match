@@ -1,4 +1,7 @@
 package Message::Match;
+{
+  $Message::Match::VERSION = '1.132270';
+}
 
 use strict;use warnings;
 require Exporter;
@@ -43,6 +46,9 @@ sub _match {
             return _special($message, $match);
         }
         return $message eq $match; #otherwise, brain-dead comparison
+    }
+    if($ref_message eq 'JSON::PP::Boolean' and $ref_match eq 'JSON::PP::Boolean') {
+        return "$message" eq "$match";
     }
     if($ref_message eq 'HASH' and $ref_match eq 'HASH') {
         foreach my $key (keys %$match) {
@@ -156,7 +162,7 @@ None known.
 
 =head1 COPYRIGHT
 
-Copyright (c) 2012, 2013 Dana M. Diederich. All Rights Reserved.
+Copyright (c) 2012, 2013, 2016 Dana M. Diederich. All Rights Reserved.
 
 =head1 AUTHOR
 
