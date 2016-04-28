@@ -1,5 +1,6 @@
 {{$NEXT}}
-
+    - Added global named capture
+    - Add behaviour for ARRAY/HASH message/match input
 1.160090  2016-01-08 17:11:34-08:00 America/Los_Angeles
     - Added proper handling of JSON::PP::Boolean datatypes
 1.132270  2013-08-14 17:46:11 PST8PDT

@@ -9,6 +9,8 @@ use vars qw(@ISA @EXPORT_OK);
 @ISA = qw(Exporter);
 @EXPORT_OK = qw(mmatch);
 
+our $named_regex = {};
+
 sub mmatch {
     my ($message, $match) = @_;
     die 'Message::Match::mmatch: two HASH references required'
@@ -30,6 +32,11 @@ sub _special {
         eval "\$re = qr$match;";    #this is hideously inefficient
                                     #but it is highly cacheable, later on
         if($message =~ $re) {
+            if(%+) {
+                while(my($key, $value) = each %+) {
+                    $named_regex->{$key} = $value;
+                }
+            }
             return 1
         } else {
             return 0;
@@ -71,6 +78,15 @@ sub _match {
             my $match = $item;
             my $message = shift @{$message};
             return 0 unless _match($message, $match);
+        }
+        return 1;
+    }
+    if($ref_message eq 'ARRAY' and $ref_match eq 'HASH') {
+#The idea is that if a message field is an array, and the
+#match field is a hash, every element in the array must have a key in the
+#hash in order to pass
+        foreach my $item (@$message) {
+            return 0 unless defined $match->{$item};
         }
         return 1;
     }
